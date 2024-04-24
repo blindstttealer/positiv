@@ -1,0 +1,100 @@
+.service-card {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+  padding: 50px;
+  background-color: var(--color-gray);
+  border: var(--border);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow);
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  &--accent-bg {
+    background-color: var(--color-accent);
+  }
+  &--dark-bg {
+    background-color: var(--color-dark);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 30px;
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__img {
+    align-self: center;
+
+    @include desktop {
+      max-width: 50%;
+      height: auto;
+    }
+
+    @include mobile {
+      max-width: 165px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    @include mobile {
+      grid-column: -1/1;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 15px;
+    font-size: 20px;
+
+    @include mobile {
+      align-self: end;
+    }
+
+    @include hover {
+      opacity: 0.8;
+    }
+
+    &-icon-wrapper {
+      @include flex-center;
+      width: 41px;
+      aspect-ratio: 1;
+      background-color: var(--color-dark);
+      border-radius: 50%;
+
+      svg {
+        color: var(--color-accent);
+      }
+
+      &--light {
+        background-color: var(--color-light);
+        svg {
+          color: var(--color-dark);
+        }
+      }
+    }
+
+    &-label--light {
+      color: var(--color-light);
+    }
+
+    &-label {
+      @include mobile {
+        @include visually-hidden;
+      }
+    }
+  }
+}
